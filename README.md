@@ -20,6 +20,38 @@
 
     - close: when author sure that assignee finish the issue, and confirm the pull request, change by author 
 
+## git command
+
+- clone
+
+    - git clone \<url link\>
+
+- branch
+
+    - git checkout \<branch\>
+
+        - switch to \<branch\>
+
+    - git branch
+
+        - check which branch you are in
+
+    - git branch \-d \<branch\>
+
+        - delete \<branch\>
+
+    - git branch \-D
+
+        - delete \<branch\> forcibly 
+
+- push
+
+    - git add .
+
+    - git commit -m \<commit\>
+
+    - git push
+
 ## Member
 
 - killua4564
