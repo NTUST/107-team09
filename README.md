@@ -1,6 +1,6 @@
 ## Rules
 
-- Before doing anything for this HW, please checkout to your own branch
+- Before doing anything for this HW, please checkout to your own branch and enter the virtualenv
 
 - When you finish a part of HW, you can commit, push and send a pull request, but DO NOT merge 
 
