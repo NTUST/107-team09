@@ -51,6 +51,16 @@
     - git commit -m \<commit\>
 
     - git push
+    
+- pull
+
+    - git fetch origin
+
+         - update from origin to local
+
+    - git merge origin/master
+
+         - update files from origin/master to local branch
 
 ## Member
 
