@@ -1,0 +1,50 @@
+
+<head>
+<style type="text/css">
+	* { cursor: none !important; }
+</style>
+
+</head>
+
+<body style="background-color:#0c0c0c;" oncontextmenu="window.event.returnValue=false">
+
+<div class="noCursor">
+
+<div id=cursor style="height: 100px; left: 100px; position: absolute; top: 160px; visibility: visible; width: 100px">
+<img SRC="https://i.imgur.com/0MnPyoi.png" width="80">
+</div>
+
+
+<SCRIPT language=JavaScript>
+
+function YY_Mousetrace(evnt) { 
+if (yyns4) 
+{if (evnt.pageX) {yy_ml=evnt.pageX; yy_mt=evnt.pageY;} }
+else{
+yy_ml=(event.clientX + document.body.scrollLeft);
+yy_mt=(event.clientY + document.body.scrollTop);
+}
+if (yy_tracescript)eval(yy_tracescript)
+}
+
+function m()
+{
+document.all.cursor.style.left=yy_ml-10
+document.all.cursor.style.top=yy_mt+10
+}
+
+var yyns4=window.Event?true:false; var yy_mt = 0; var yy_ml = 0;
+if (yyns4) document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove = YY_Mousetrace;
+yy_tracescript = 'm()';
+
+</SCRIPT> 
+
+  
+  <img name="img01" alt="" src="https://i.imgur.com/HswsVfu.png"                
+             onmouseout="this.src='https://i.imgur.com/HswsVfu.png'"
+             onmouseover="this.src='https://i.imgur.com/U7oKiwl.png'"
+             onclick="setBanner(); showFlag(); "/>
+
+ </div>
+</body>
