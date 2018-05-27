@@ -1,17 +1,28 @@
 
 <head>
+
+<link rel=stylesheet type="text/css" href="bg_animation.css">
+<link rel=stylesheet type="text/css" href="cursor_animation.css">
+
 <style type="text/css">
 	* { cursor: none !important; }
+
+	 .middle{
+
+      display:  flex;
+      align-items: center;
+      justify-content:  center;
+      }
 </style>
 
 </head>
 
-<body style="background-color:#0c0c0c;" oncontextmenu="window.event.returnValue=false">
+<body style="background-color:#0c0c0c;" oncontextmenu="window.event.returnValue=false" id="BG_animate">
 
 <div class="noCursor">
 
-<div id=cursor style="height: 100px; left: 100px; position: absolute; top: 160px; visibility: visible; width: 100px">
-<img SRC="https://i.imgur.com/0MnPyoi.png" width="80">
+<div class="blink-2" id=cursor style="height: 100px; left: 100px; position: absolute; top: 160px; visibility: visible; width: 100px">
+		<img SRC="https://i.imgur.com/0MnPyoi.png" width="80">
 </div>
 
 
@@ -40,11 +51,12 @@ yy_tracescript = 'm()';
 
 </SCRIPT> 
 
-  
+
+ <div class="middle">
   <img name="img01" alt="" src="https://i.imgur.com/HswsVfu.png"                
              onmouseout="this.src='https://i.imgur.com/HswsVfu.png'"
              onmouseover="this.src='https://i.imgur.com/U7oKiwl.png'"
-             onclick="setBanner(); showFlag(); "/>
+             onclick="setBanner(); showFlag(); " />
 
  </div>
 </body>
