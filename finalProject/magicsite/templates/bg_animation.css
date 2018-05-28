@@ -7,9 +7,9 @@
 #BG_animate { 
   width: 1024px; 
   height: 768px; 
-  background-image: url(https://i.imgur.com/eVgd6fo.jpg);
+  background-image: url(bg.png);
   background-position: 0px 0px;
   background-repeat: repeat-y;
 
-  animation: animatedBackground 40s linear infinite;
+  animation: animatedBackground 60s linear infinite;
 }

@@ -1,62 +1,77 @@
 
-<head>
 
-<link rel=stylesheet type="text/css" href="bg_animation.css">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>魔法少女site</title>
+
+    <meta charset="utf-8">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel=stylesheet type="text/css" href="glitch_blur_text.css">
+    <link rel=stylesheet type="text/css" href="bg_animation.css">
+	<script src="magicCursor.js"></script>
 <link rel=stylesheet type="text/css" href="cursor_animation.css">
 
+
+
+
 <style type="text/css">
-	* { cursor: none !important; }
-
-	 .middle{
-
-      display:  flex;
-      align-items: center;
-      justify-content:  center;
-      }
+  * { cursor: none !important; }
 </style>
 
-</head>
-
-<body style="background-color:#0c0c0c;" oncontextmenu="window.event.returnValue=false" id="BG_animate">
-
-<div class="noCursor">
-
-<div class="blink-2" id=cursor style="height: 100px; left: 100px; position: absolute; top: 160px; visibility: visible; width: 100px">
-		<img SRC="https://i.imgur.com/0MnPyoi.png" width="80">
-</div>
-
-
-<SCRIPT language=JavaScript>
-
-function YY_Mousetrace(evnt) { 
-if (yyns4) 
-{if (evnt.pageX) {yy_ml=evnt.pageX; yy_mt=evnt.pageY;} }
-else{
-yy_ml=(event.clientX + document.body.scrollLeft);
-yy_mt=(event.clientY + document.body.scrollTop);
-}
-if (yy_tracescript)eval(yy_tracescript)
-}
-
-function m()
-{
-document.all.cursor.style.left=yy_ml-10
-document.all.cursor.style.top=yy_mt+10
-}
-
-var yyns4=window.Event?true:false; var yy_mt = 0; var yy_ml = 0;
-if (yyns4) document.captureEvents(Event.MOUSEMOVE);
-document.onmousemove = YY_Mousetrace;
-yy_tracescript = 'm()';
-
-</SCRIPT> 
+    <style type="text/css">  
+    #p0{
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 8px;
+    color:#FFFFFF;
+  }</style>
+ <div class="blink-2" id=cursor style="height: 80px; left: 100px; position: absolute; top: 160px; visibility: visible; width: 80px"><img SRC="https://i.imgur.com/0MnPyoi.png" width="80"></div>
+  </head>
 
 
- <div class="middle">
-  <img name="img01" alt="" src="https://i.imgur.com/HswsVfu.png"                
-             onmouseout="this.src='https://i.imgur.com/HswsVfu.png'"
-             onmouseover="this.src='https://i.imgur.com/U7oKiwl.png'"
-             onclick="setBanner(); showFlag(); " />
 
- </div>
-</body>
+  <body oncontextmenu="window.event.returnValue=false" id="BG_animate">
+
+
+  	
+
+	
+    <div class="container-fluid" style="padding: 100px">
+      
+    
+
+		<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-2">
+					 <div class="middle" style="width: 25%;height: 60%"><img name="img01" alt="" src="https://i.imgur.com/HswsVfu.png"                
+		             onmouseout="this.src='https://i.imgur.com/HswsVfu.png'"
+		             onmouseover="this.src='https://i.imgur.com/U7oKiwl.png'"
+		             onclick="setBanner(); showFlag(); " /></div>
+				</div>
+				<div class="col-md-4">
+					<p id="p0">
+						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+					</p>
+					<br><br>
+					<div class="link_padding" >
+		  				<p class="p1">Share to FB</p>
+		  				<p class="p1">Donate us</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+				</div>
+
+
+	</div>
+	
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="magicCursor.js"></script>
+  </body>

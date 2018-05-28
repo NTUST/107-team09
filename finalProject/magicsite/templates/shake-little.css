@@ -1,4 +1,6 @@
-.shake-little{display:inline-block;transform-origin:center center}.shake-freeze,.shake-constant.shake-constant--hover:hover,.shake-trigger:hover .shake-constant.shake-constant--hover{animation-play-state:paused}.shake-freeze:hover,.shake-trigger:hover .shake-freeze,.shake-little:hover,.shake-trigger:hover .shake-little{animation-play-state:running}
+.shake-little{display:inline-block;transform-origin:center center}.shake-freeze,.shake-constant.shake-constant--hover:hover,
+.shake-trigger:hover .shake-constant.shake-constant--hover{animation-play-state:paused}.shake-freeze:hover,.shake-trigger:hover 
+.shake-freeze,.shake-little:hover,.shake-trigger:hover .shake-little{animation-play-state:running}
 @keyframes shake-little{
   2%{transform:translate(0px, 0px) rotate(.5deg)}
   4%{transform:translate(0px, 1px) rotate(.5deg)}
