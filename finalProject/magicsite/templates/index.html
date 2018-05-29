@@ -291,7 +291,7 @@ label {
       {% for o in q.option_set.all %}
       
       <div class="option">
-        <input type="radio" id="answer"  name="option">
+        <input type="radio" id="answer"  name="{{ q.id }}">
         <div class="radio"> 
         </div>
         <label for="answer" >{{o.text}}
