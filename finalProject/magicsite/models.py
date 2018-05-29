@@ -13,7 +13,7 @@ class Question(models.Model):
 		return self.text
 class Option(models.Model):
 	text = models.CharField(max_length = 150)
-	score = models.DecimalField(max_digits = 6,decimal_places = 3)
+	op_type = models.CharField(max_length = 1, default="")
 	question = models.ForeignKey(Question)
 	def __str__(self):
 		return self.text
