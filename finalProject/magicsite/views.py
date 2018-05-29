@@ -6,8 +6,8 @@ from django.shortcuts import render
 from .models import *
 
 def index(request):
-	question_sets=Question_Set.objects.all()
-	return render_to_response("magicsite/menu.html",locals())
+	question=Question.objects.all()
+	return render_to_response("index.html",locals())
 	
 def home(request):
     return render(request, 'magicsite/home.html')
