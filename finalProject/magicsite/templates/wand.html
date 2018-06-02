@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 
 <head>
 
-<title>---獲得魔杖---</title>
+<title>魔法少女網站</title>
 <meta charset="utf-8">
-<link rel=stylesheet type="text/css" href="shake-little.css">
-<link rel=stylesheet type="text/css" href="flicker-3.css">
-<link rel=stylesheet type="text/css" href="glitch.css">
 
-
+<link href="{% static 'css/shake-little.css' %}" rel="stylesheet">
+<link href="{% static 'css/flicker-3.css' %}" rel="stylesheet">
+<link href="{% static 'css/glitch.css' %}" rel="stylesheet">
 
 <style>
 
@@ -58,25 +59,25 @@
 
 
   .middle{
-      width: 27%;
-      height: 15%;
-      display:  flex;
       align-items: center;
       justify-content:  center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
       }
 
 </style>
 </head>
 
-<body style="background-color:#0c0c0c;" class="glitch">
-  <div class="glitch-noice">
-  <div>
-    <p class="type text-focus-in">現在拿起魔杖、獲得魔法的力量吧。</p>
+<body style="background-color:#0c0c0c;" class="glitch-noice">
+  <div class="middle" style="top:45%">
+    <p class="type">拿起魔杖、獲得魔法的力量吧。</p>
   </div>
 
-  <div class="middle">
-    <a href="result.html"><img src="https://i.imgur.com/PckflvU.png" height="500" width="500" class="shake-little flicker-3"></a>
+  <div class="middle" style="top:15%">
+    <a href="../result"><img src="https://i.imgur.com/PckflvU.png" height="450" width="450" class="shake-little flicker-3"></a>
   </div>
-</div>
+
 </body>
 </html>
