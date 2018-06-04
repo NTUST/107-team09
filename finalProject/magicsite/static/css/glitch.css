@@ -1,0 +1,45 @@
+
+
+
+@keyframes noise {
+  0% {
+    background-position: -97px 76px;
+  }
+  10% {
+    background-position: -11px 12px;
+  }
+  20% {
+    background-position: 76px 10px;
+  }
+  30% {
+    background-position: 44px 71px;
+  }
+  40% {
+    background-position: 54px 19px;
+  }
+  50% {
+    background-position: -11px -21px;
+  }
+  60% {
+    background-position: -77px -51px;
+  }
+  70% {
+    background-position: -43px 8px;
+  }
+  80% {
+    background-position: -17px 98px;
+  }
+  90% {
+    background-position: 17px -98px;
+  }
+}
+
+.glitch-noice {
+
+  background: url(img/whitenoise-361x370.png);
+  -ms-animation: noise 0.2s infinite;
+  -moz-animation: noise 0.2s infinite;
+  -o-animation: noise 0.2s infinite;
+  -webkit-animation: noise 0.2s infinite;
+          animation: noise 0.2s infinite;
+/
