@@ -10,7 +10,7 @@ def index(request):
 	return render_to_response("index.html",locals())
 	
 def home(request):
-    return render(request, 'home.html')
+    return render_to_response("home.html",locals())
 	
 
 # dragon
