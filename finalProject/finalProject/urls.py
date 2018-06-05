@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from magicsite.views import home
 
 urlpatterns = [
+    url(r'^$', home, name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^magicsite/',include('magicsite.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),

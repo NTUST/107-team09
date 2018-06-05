@@ -59,11 +59,11 @@ for i in range(0, len(data),5):
     question = Question.objects.create(text=question_text,question_set =question_set)
     for j in range(i+1,i+4):
         if(j==i+1):
-            Option.objects.create(text=data[j],op_type=a,question=question)
+            Option.objects.create(text=data[j],op_type='a',question=question)
         elif(j==i+2):
-            Option.objects.create(text=data[j],op_type=b,question=question)
+            Option.objects.create(text=data[j],op_type='b',question=question)
         elif(j==i+3):
-            Option.objects.create(text=data[j],op_type=c,question=question)
+            Option.objects.create(text=data[j],op_type='c',question=question)
         elif(j==i+4):
-            Option.objects.create(text=data[j],op_type=d,question=question)
+            Option.objects.create(text=data[j],op_type='d',question=question)
         
