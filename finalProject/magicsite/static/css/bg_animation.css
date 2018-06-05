@@ -1,0 +1,15 @@
+{% load static %}
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 100% ; }
+}
+
+#BG_animate { 
+  width: 1024px; 
+  height: 768px; 
+  background-image: url(../img/bg.png);
+  background-position: 0px 0px;
+  background-repeat: repeat-y;
+
+  animation: animatedBackground 60s linear infinite;
+}
