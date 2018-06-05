@@ -17,17 +17,17 @@ def home(request):
 def post(request):
 
 	if request.POST.get('max') > 0:
-		if request.POST.get('max') = 1:
+		if request.POST.get('max') == 1:
 			return render(request, 'template2', context)
-		elif request.POST.get('max') = 2:
+		elif request.POST.get('max') == 2:
 			return render(request, 'template2', context)
-		elif request.POST.get('max') = 3:
+		elif request.POST.get('max') == 3:
 			return render(request, 'template2', context)
-		elif request.POST.get('max') = 4:
+		elif request.POST.get('max') == 4:
 			return render(request, 'template2', context)	
      
-	else:
-    	return render(request, "", {: })
+	#else:
+    	#return render(request, "", {: })
 
 # dragon
 def wand(request):
