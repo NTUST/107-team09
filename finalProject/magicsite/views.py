@@ -11,9 +11,13 @@ def index(request):
 	return render(request, 'index.html')
 
 def home(request):
-	return render(request, 'home.html')
+  return render(request, 'home.html')
+    
+def menu(request):
+	question_sets=Question_Set.objects.all()
+  return render(request, 'menu.html')
 
-# =============== auth ===============
+
 def register(request):
 	if request.method == 'POST':
 		username = request.POST.get('username')
@@ -45,7 +49,7 @@ def login(request):
 def logout(request):
 	auth.logout(request)
 	return redirect('/magicsite/')
-# ====================================
+
 
 def question(request):
 	question = Question.objects.all()
