@@ -1,5 +1,57 @@
-<h1>測試<h1>
+
+<!DOCTYPE html>
+
+
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>魔法少女網站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'>
+
+  <link href="{% static 'css/menu_style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/focus_in.css' %}" rel="stylesheet">
+  <link href="{% static 'css/fade-in-top.css' %}" rel="stylesheet">
+
+  <style type="text/css">  
+    h1{
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 5px;
+    color:#FFFFFF;}
+
+    .p0{
+    font-size: 10px;
+    line-height: 24px;
+    letter-spacing: 3px;
+    color:#FFFFFF;
+  }</style>
+
+  
+</head>
+
+<body>
+
+  <h1 class="title text-focus-in">Menu</h1>
+
+<div id="app" class="container">
 {% for q in question_sets %}
-<h2>{{ q.title }}<h2>
-<table >
-</table>
+  <card class="fade-in-top" data-image="https://i.imgur.com/bVjEyze.png">
+    <h1 slot="header">{{q.title}}</h1>
+    <p class="p0" slot="content">{{q.desc}}</p>
+  </card>
+{% endfor %}
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
+  <script src="{% static 'js/menu.js' %}" rel="stylesheet"></script>
+
+
+
+
+</body>
+
+</html>
+
