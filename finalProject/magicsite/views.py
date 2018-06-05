@@ -10,12 +10,24 @@ def index(request):
 	return render_to_response("index.html",locals())
 	
 def home(request):
-<<<<<<< HEAD
+
     return render_to_response("home.html",locals())
 	
-=======
-    return render(request, 'home.html')
->>>>>>> 2af5f2693af9c831a797a5007cb46fcfd06abede
+
+def post(request):
+
+	if request.POST.get('max') > 0:
+		if request.POST.get('max') = 1:
+			return render(request, 'template2', context)
+		elif request.POST.get('max') = 2:
+			return render(request, 'template2', context)
+		elif request.POST.get('max') = 3:
+			return render(request, 'template2', context)
+		elif request.POST.get('max') = 4:
+			return render(request, 'template2', context)	
+     
+	else:
+    	return render(request, "", {: })
 
 # dragon
 def wand(request):
