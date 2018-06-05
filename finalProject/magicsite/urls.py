@@ -8,4 +8,3 @@ urlpatterns=[
 	url(r'^wand/$',views.wand, name='wand'),
 	url(r'^menu/$',views.menu, name='menu'),
 	url(r'^question/$',views.index, name='question'),
-]
