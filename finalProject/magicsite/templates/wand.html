@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+   <head>
+      <title>魔法少女網站</title>
+      <meta charset="utf-8">
+      <link href="{% static 'css/shake-little.css' %}" rel="stylesheet">
+      <link href="{% static 'css/flicker-3.css' %}" rel="stylesheet">
+      <link href="{% static 'css/bg_noise.css' %}" rel="stylesheet">
+      <style>
+         img {
+         opacity: 0.5;
+         filter: alpha(opacity=50); 
+         -webkit-animation: img 1.5s 
+         }
+         img:hover {
+         opacity: 1.0;
+         filter: alpha(opacity=100);
+         cursor: pointer;
+         }
+         div{
+         position: absolute;
+         top: 50%;
+         left: 34%;
+         }
+         p{
+         text-align:center;
+         font-size: 14px;
+         line-height: 24px;
+         letter-spacing: 10px;
+         color:#FFFFFF;
+         }
+         @keyframes typing {
+         from { width: 0 }
+         }
+         .type {
+         width: 27em;
+         overflow: hidden;
+         white-space: nowrap;
+         animation: typing 3s steps(20)
+         }
+         .myMOUSE{ cursor: pointer; }
+         .middle{
+         align-items: center;
+         justify-content:  center;
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%);
+         }
+      </style>
+   </head>
+   <body style="background-color:#0c0c0c;" class="glitch-noice">
+      <div class="middle" style="top:45%">
+         <p class="type">拿起魔杖、獲得魔法的力量吧。</p>
+      </div>
+      <div class="middle" style="top:15%">
+         <a href="../result"><img src="../../media/{{magic_wand.image}}" height="450" width="450" class="shake-little flicker-3"></a>
+      </div>
+   </body>
+</html>

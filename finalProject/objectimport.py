@@ -1,3 +1,4 @@
+
 from magicsite.models import *
 
 string = """讓你感到痛苦的原因是什麼？
@@ -57,7 +58,7 @@ data = string.split("\n")
 for i in range(0, len(data),5):
     question_text = data[i]
     question = Question.objects.create(text=question_text,question_set =question_set)
-    for j in range(i+1,i+4):
+    for j in range(i+1,i+5):
         if(j==i+1):
             Option.objects.create(text=data[j],op_type='a',question=question)
         elif(j==i+2):
