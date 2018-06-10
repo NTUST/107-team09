@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en" >
 
 <head>
@@ -287,7 +287,7 @@ label {
     
 <div class="type">
   <h3 id="qurstion">{{q.text}}</h1>
-    <form>
+    
       {% for o in q.option_set.all %}
       
       <div class="option">
@@ -299,41 +299,16 @@ label {
       </div>
        {% endfor %}
 <p/>
-                  {% endfor %}
-      <script type="text/javascript">
-        
-        $( "button" ).submit(function( event ) {
-  event.preventDefault();
-  var l1 = $("#option1:radio:checked").length;
-  var l2 = $("#option2:radio:checked").length;
-  var l3 = $("#option3:radio:checked").length;
-  var l4 = $("#option4:radio:checked").length;
-  var max = Math.max(l1,l2,l3,l4);
-  switch (max) {
-    case a:
-      max = 1;
-      break;
-    case b:
-      max = 2;
-      break;
-    case c:
-      max = 3;
-      break;
-    case d:
-      max = 4;
-      break;
-    default:
-      max = -1
-  }
-  $.post('.', {"max":max});
-});
+    {% endfor %}
 
-      </script>
 			
 			<div class="button flicker-out-1">
-					<button type="submit"><span style="font-family:cursive;">Change Your Life</span></button>
+					<button type="submit" onclick="return false;"><span style="font-family:cursive;">Change Your Life</span></button>
 			</div>	
         </div>
+    <form action="/magicsite/wand/" method="post" id="form">
+      {% csrf_token %}
+      <input type="hidden" name="max" id="max" value="">
 		</form>
     </div>
     </body>
@@ -341,10 +316,41 @@ label {
 
 	</div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript">
+$("button").click(function(event) {
+  event.preventDefault();
+  var l1 = $("#option1:checked").length;
+  var l2 = $("#option2:checked").length;
+  var l3 = $("#option3:checked").length;
+  var l4 = $("#option4:checked").length;
+  var max = Math.max(l1,l2,l3,l4);
+  console.log(l1,l2,l3,l4);
+  switch (max) {
+    case l1:
+      max = 1;
+      break;
+    case l2:
+      max = 2;
+      break;
+    case l3:
+      max = 3;
+      break;
+    case l4:
+      max = 4;
+      break;
+    default:
+      max = -1
+  }
 
+
+  $("#max").val(max);
+  $("#form").submit();
+});
+</script>
   
 
-    <script >var nbDrop = 858; 
+<script>
+  ]var nbDrop = 858; 
 
 // function to generate a random number range.
 function randRange( minNum, maxNum) {

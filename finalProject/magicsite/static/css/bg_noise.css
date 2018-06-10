@@ -36,10 +36,10 @@
 
 .glitch-noice {
 
-  background: url(img/whitenoise-361x370.png);
+  background: url(../img/whitenoise-361x370.png);
   -ms-animation: noise 0.2s infinite;
   -moz-animation: noise 0.2s infinite;
   -o-animation: noise 0.2s infinite;
   -webkit-animation: noise 0.2s infinite;
           animation: noise 0.2s infinite;
-/
+}
