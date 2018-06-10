@@ -1,13 +1,10 @@
-from __future__ import unicode_literals
-import json
-
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
+import json
 from .models import *
 
 def index(request):
@@ -48,16 +45,23 @@ def logout(request):
 
 @login_required
 def menu(request):
+	user = request.user
 	question_sets = Question_Set.objects.all()
+	ms_list = []
+	for question in question_sets:
+		ms = User_Mahou_Shoujo.objects.filter(user=user, question_set=question)
+		if len(ms) > 0: ms_list.append(Magic_Wand.objects.get(mahou_shoujo=ms[0].mahou_shoujo).image)
+		else: ms_list.append(None)
+	question_sets = zip(question_sets, ms_list)
 	return render(request, 'menu.html', {'question_sets': question_sets})
 
 @login_required
 def question(request):
-		print(int(request.POST.get('option')))
-		question_sets_id=int(request.POST.get('option'))
-		question_sets = Question_Set.objects.get(id=question_sets_id)
-		question = Question.objects.filter(question_set__id=question_sets_id)	
-		return render(request, "question.html", {'question': question})
+	question_sets_id = int(request.POST.get('option'))
+	question_sets = Question_Set.objects.get(id=question_sets_id)
+	question = Question.objects.filter(question_set__id=question_sets_id)
+	request.session['question_set'] = question_sets_id
+	return render(request, "question.html", {'question': question})
 
 @login_required
 def wand(request):
@@ -68,25 +72,33 @@ def wand(request):
 		elif max == 2: magic_wand = Magic_Wand.objects.get(name='吹泡泡')
 		elif max == 3: magic_wand = Magic_Wand.objects.get(name='拍立得')
 		elif max == 4: magic_wand = Magic_Wand.objects.get(name='MP3')
-		return render(request, 'wand.html',{'magic_wand':magic_wand})		
+		return render(request, 'wand.html', {'magic_wand':magic_wand})		
 	return render(request, "wand.html")
 
 @login_required
 def result(request):
-	max = request.session['key'] 
+	max = request.session['key']
+	question_set = request.session['question_set']
+	question_sets = Question_Set.objects.get(id=question_set)
 	if max > 0:
 		if max == 1:
 			magic_wand = Magic_Wand.objects.get(name='吸塵器')
-			mahou_Shoujo = magic_wand.mahou_shoujo
+			mahou_shoujo = magic_wand.mahou_shoujo
 		elif max == 2:
 			magic_wand = Magic_Wand.objects.get(name='吹泡泡')
-			mahou_Shoujo = magic_wand.mahou_shoujo
+			mahou_shoujo = magic_wand.mahou_shoujo
 		elif max == 3:
 			magic_wand = Magic_Wand.objects.get(name='拍立得')
-			mahou_Shoujo = magic_wand.mahou_shoujo
+			mahou_shoujo = magic_wand.mahou_shoujo
 		elif max == 4:
 			magic_wand = Magic_Wand.objects.get(name='MP3')
-			mahou_Shoujo = magic_wand.mahou_shoujo
-		return render(request, 'result.html',{'magic_wand':magic_wand,'mahou_Shoujo':mahou_Shoujo})		
+			mahou_shoujo = magic_wand.mahou_shoujo
+		User_Mahou_Shoujo.objects.create(user=request.user, mahou_shoujo=mahou_shoujo, question_set=question_sets)
+		return render(request, 'result.html',
+			{
+				'magic_wand': magic_wand,
+				'mahou_Shoujo': mahou_shoujo
+			}
+		)		
 	return render(request, "result.html")
 	

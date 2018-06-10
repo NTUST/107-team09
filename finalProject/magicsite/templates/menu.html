@@ -5,43 +5,37 @@
    <title>魔法少女網站</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'>
+   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'>
    <link href="{% static 'css/menu.css' %}" rel="stylesheet">
    <link href="{% static 'css/focus_in.css' %}" rel="stylesheet">
    <link href="{% static 'css/fade-in-top.css' %}" rel="stylesheet">
    <style type="text/css">  
-      .h{
-      font-size: 13px;
-      line-height: 24px;
-      letter-spacing: 2px;
-      color:#DDDDDD;}
-      .p0{
-      font-size: 9px;
-      line-height: 24px;
-      letter-spacing: 2px;
-      color:#FFFFFF;
+      .h
+      {
+        font-size: 13px;
+        line-height: 24px;
+        letter-spacing: 2px;
+        color:#DDDDDD;
+      }
+      .p0
+      {
+        font-size: 9px;
+        line-height: 24px;
+        letter-spacing: 2px;
+        color:#FFFFFF;
       }
    </style>
 </head>
 <body>
    <h1 class="title text-focus-in">Menu</h1>
    <div id="app" class="container">
-      <script type="text/javascript">
-         var a=0;
-      </script>
       {% csrf_token %}
-      {% for q in question_sets %}
-      <a href="../question">
-         <card class="fade-in-top {{q.id}}" data-image="https://i.imgur.com/bVjEyze.png" id="c" name={{q.id}} onclick="click_menu({{q.id}})">
-            <h1 class="h" slot="header">{{q.title}}</h1>
-            <p class="p0" slot="content">「{{q.desc}}」</p>
-         </card>
-      </a>
-      <script type="text/javascript">
-         a++;
-      </script>
+      {% for q, image in question_sets %}
+      <card class="fade-in-top {{ q.id }}" data-image="{% if image == None %}https://i.imgur.com/bVjEyze.png{% else %}../../media/{{image}}{% endif %}" id="c" name="{{ q.id }}" {% if image == None %} onclick="click_menu({{ q.id }})"{% endif %}>
+         <h1 class="h" slot="header">{{ q.title }}</h1>
+         <p class="p0" slot="content">「{{ q.desc }}」</p>
+      </card>
       {% endfor %}
-
     </div>
     <div>
     <form action="/magicsite/question/" method="post" id="form">
