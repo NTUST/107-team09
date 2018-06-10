@@ -1,3 +1,6 @@
+from __future__ import unicode_literals
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -50,36 +53,45 @@ def menu(request):
 
 @login_required
 def question(request):
-	question = Question.objects.all()
-	return render(request, "question.html", {'question': question})
-
-@login_required
-def post(request):
-	if request.POST.get('max') > 0:
-		if request.POST.get('max') == 1:
-			return render(request, 'template2', context)
-		elif request.POST.get('max') == 2:
-			return render(request, 'template2', context)
-		elif request.POST.get('max') == 3:
-			return render(request, 'template2', context)
-		elif request.POST.get('max') == 4:
-			return render(request, 'template2', context)	
-	 
-	#else:
-		#return render(request, "", {: })
+		print(int(request.POST.get('option')))
+		question_sets_id=int(request.POST.get('option'))
+		question_sets = Question_Set.objects.get(id=question_sets_id)
+		question = Question.objects.filter(question_set__id=question_sets_id)	
+		return render(request, "question.html", {'question': question})
 
 @login_required
 def wand(request):
-	magic_Wand = Magic_Wand.objects.all()
-	return render(request, "wand.html", {'magic_Wand': magic_Wand})
+	max = int(request.POST.get('max'))
+	request.session['key'] = max
+	if max > 0:
+		if max == 1:
+			magic_wand = Magic_Wand.objects.get(name='吸塵器')
+		elif max == 2:
+			magic_wand = Magic_Wand.objects.get(name='吹泡泡')
+		elif max == 3:
+			magic_wand = Magic_Wand.objects.get(name='拍立得')
+		elif max == 4:
+			magic_wand = Magic_Wand.objects.get(name='MP3')
+		return render(request, 'wand.html',{'magic_wand':magic_wand})		
+	return render(request, "wand.html")
+
 
 @login_required
 def result(request):
-	magic_Wand = Magic_Wand.objects.all()
-	mahou_Shoujo = Mahou_Shoujo.objects.all()
-	return render(request, "result.html", 
-		{
-			'magic_Wand': magic_Wand,
-			'mahou_Shoujo': mahou_Shoujo
-		}
-	)
+	max = request.session['key'] 
+	if max > 0:
+		if max == 1:
+			magic_wand = Magic_Wand.objects.get(name='吸塵器')
+			mahou_Shoujo = magic_wand.mahou_shoujo
+		elif max == 2:
+			magic_wand = Magic_Wand.objects.get(name='吹泡泡')
+			mahou_Shoujo = magic_wand.mahou_shoujo
+		elif max == 3:
+			magic_wand = Magic_Wand.objects.get(name='拍立得')
+			mahou_Shoujo = magic_wand.mahou_shoujo
+		elif max == 4:
+			magic_wand = Magic_Wand.objects.get(name='MP3')
+			mahou_Shoujo = magic_wand.mahou_shoujo
+		return render(request, 'result.html',{'magic_wand':magic_wand,'mahou_Shoujo':mahou_Shoujo})		
+	return render(request, "result.html")
+	
