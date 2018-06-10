@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>8:00</title>
+  <title>魔法少女網站</title>
   
   
   
@@ -291,7 +291,7 @@ label {
       {% for o in q.option_set.all %}
       
       <div class="option">
-        <input type="radio" id="option{{ forloop.counter }}"  name="{{ q.id }}">
+        <input type="radio" id="option{{ forloop.counter }}" WIDTH: 60px; HEIGHT: 60px"  name="{{ q.id }}">
         <div class="radio"> 
         </div>
         <label for="answer" >{{o.text}}
@@ -299,8 +299,7 @@ label {
       </div>
        {% endfor %}
 <p/>
-    {% endfor %}
-
+                  {% endfor %}
 			
 			<div class="button flicker-out-1">
 					<button type="submit" onclick="return false;"><span style="font-family:cursive;">Change Your Life</span></button>
@@ -308,7 +307,7 @@ label {
         </div>
     <form action="/magicsite/wand/" method="post" id="form">
       {% csrf_token %}
-      <input type="hidden" name="max" id="max" value="">
+      <input type="hidden" name='max' id="max" value="">
 		</form>
     </div>
     </body>
@@ -350,7 +349,8 @@ $("button").click(function(event) {
   
 
 <script>
-  ]var nbDrop = 858; 
+// number of drops created.
+var nbDrop = 858; 
 
 // function to generate a random number range.
 function randRange( minNum, maxNum) {
@@ -370,6 +370,5 @@ function createRain() {
   }
 
 }
-
 // Make it rain
 createRain();</script>
