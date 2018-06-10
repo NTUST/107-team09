@@ -64,17 +64,12 @@ def wand(request):
 	max = int(request.POST.get('max'))
 	request.session['key'] = max
 	if max > 0:
-		if max == 1:
-			magic_wand = Magic_Wand.objects.get(name='吸塵器')
-		elif max == 2:
-			magic_wand = Magic_Wand.objects.get(name='吹泡泡')
-		elif max == 3:
-			magic_wand = Magic_Wand.objects.get(name='拍立得')
-		elif max == 4:
-			magic_wand = Magic_Wand.objects.get(name='MP3')
+		if max == 1: magic_wand = Magic_Wand.objects.get(name='吸塵器')
+		elif max == 2: magic_wand = Magic_Wand.objects.get(name='吹泡泡')
+		elif max == 3: magic_wand = Magic_Wand.objects.get(name='拍立得')
+		elif max == 4: magic_wand = Magic_Wand.objects.get(name='MP3')
 		return render(request, 'wand.html',{'magic_wand':magic_wand})		
 	return render(request, "wand.html")
-
 
 @login_required
 def result(request):
