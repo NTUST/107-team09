@@ -1,6 +1,7 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 
-# Register your models here.
 from .models import *
 
 class QuestionInline(admin.TabularInline):
@@ -14,6 +15,12 @@ class Magic_WandInline(admin.TabularInline):
 
 class User_Mahou_ShoujoInline(admin.TabularInline):
 	model = User_Mahou_Shoujo
+
+class UserAdmin(UserAdmin):
+    inlines = [User_Mahou_ShoujoInline]
+    list_display = ('username', 'email', 'first_name', 'last_name', 'date_joined', 'is_staff')
+    list_filter = ['is_staff', 'is_superuser', 'is_active']
+    search_fields = ['username', 'email']
 
 class QuestionSetAdmin(admin.ModelAdmin):
 	fieldsets = [
@@ -66,6 +73,8 @@ class UserMahouShoujoAdmin(admin.ModelAdmin):
 	list_filter = ['user', 'question_set', 'mahou_shoujo']
 	search_fields = ['user', 'question_set', 'mahou_shoujo']
 
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Question_Set, QuestionSetAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Option, OptionAdmin)
